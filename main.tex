@@ -1,0 +1,200 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% One-Page Professional Resume
+% LaTeX Template
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{multicol}
+
+% Page margins - optimized for one page
+\geometry{left=0.5in,right=0.5in,top=0.4in,bottom=0.50in}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Define colors
+\definecolor{headerblue}{RGB}{0,102,204}
+
+% Section formatting - reduced spacing
+\titleformat{\section}{\large\bfseries\color{headerblue}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+% Custom commands
+\newcommand{\resumeSubheading}[4]{
+  \item
+    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{#2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+  \item
+    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textit{\small #2}
+    \end{tabular*}\vspace{-3pt}
+}
+
+\begin{document}
+
+% Header
+\begin{center}
+    {\Huge\bfseries FAIZAN KHAN} \\[10pt]
+     9671636548 $|$ mrfaizan023@gmail.com $|$ Gurgaon, Haryana
+\end{center}
+\vspace{0pt}
+
+% Summary
+\section{SUMMARY}
+\vspace{8pt}
+\textbf{Full Stack Developer | Front-End Enthusiast | Backend Problem Solver}
+
+Creative Full Stack Developer skilled in HTML, CSS, Tailwind CSS, JavaScript, Bootstrap, Git, and GitHub.
+Proficient in backend development using Node.js and Express.js with experience in MongoDB and SQL.
+Strong command over C and Python with solid knowledge of OOP, DSA, and software fundamentals.
+Passionate about building secure, scalable, and user-focused web applications.
+
+
+
+
+% Two column section for Education and Skills
+\begin{multicols}{2}
+\raggedright
+
+% Education
+\section{EDUCATION}
+\vspace{8pt}
+\begin{itemize}[leftmargin=0.15in, itemsep=-1pt]
+\small
+\textbf{Bachelor of Technology} \\
+Computer Science \& Engineering \\
+Chaudhary Devi Lal University \\
+2023 -- 2027 | GPA: 9.1/10 \\
+Sirsa, Haryana
+
+\vspace{8pt}
+\textbf{Intermediate} \\
+Govt. Model Sanskriti Sr. Sec. School \\
+2022 -- 2023
+
+\vspace{8pt}
+\textbf{Matriculation} \\
+Maulana Azad National Urdu University \\
+2020 -- 2021
+
+\columnbreak
+
+% Skills
+\section{SKILLS} 
+\vspace{8pt}
+
+\small
+\textbf{Front-End:} \\
+HTML, CSS, JavaScript, GitHub, \\
+Tailwind CSS, React.JS, Bootstrap
+
+\vspace{8pt}
+\textbf{Back-End:} \\
+Node.JS, Express.JS, Rest APIs , Postman
+
+\vspace{8pt}
+\textbf{Database:} \\
+MySQL, MongoDB, DBMS, MongoDB Compass
+
+\vspace{8pt}
+\textbf{Languages:} \\
+C, C++, Python, DSA, OOP Concepts
+
+\end{multicols}
+\vspace{5pt}  
+% Experience
+\section{EXPERIENCE}
+\vspace{3pt}
+\begin{itemize}[leftmargin=0.1in, label={}, itemsep=-2pt]
+    \resumeSubheading
+      {Front End Web Developer}{08/2025 -- 09/2025}
+      {Edunet Foundation | IBM SkillsBuild}{Online}
+      \vspace{3pt}
+      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=-1pt]
+       
+        \item \small Built responsive web projects and enhanced skills in modern web design and user experience optimization.
+         \item \small Completed Frontend Web Development internship hands-on experience with HTML,Tailwind CSS,JavaScript, React.js.
+
+
+
+      \end{itemize}
+      
+    \resumeSubheading
+      {AI/ML \& Cloud Technologies}{07/2025 -- 12/2025}
+      {Edunet Foundation | IBM SkillsBuild}{Online}
+      \vspace{3pt}
+      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=-1pt]
+      \item \small Trained in cloud computing with practical experience in IBM Cloud, AutoAI, EDA, and AI chatbot development.
+\item \small Developed strong skills in data visualization, machine learning, and prompt engineering for real-world problem solving.
+
+
+      \end{itemize}
+\end{itemize}
+
+% Projects
+\section{PROJECTS}
+\vspace{3pt}
+\begin{itemize}[leftmargin=0.1in, label={}, itemsep=4pt]
+    \resumeProjectHeading
+      {PERSONAL PORTFOLIO || AMAZON , YOUTUBE COLON}{Frontend Development}
+      \vspace{-10pt}
+      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
+        \item \small Built a fully responsive personal portfolio using HTML, CSS, Tailwind CSS, and JavaScript to showcase projects and skills with a clean, modern, and visually appealing user interface design.
+
+      \end{itemize}
+      
+    \resumeProjectHeading
+      {TASKFLOW -- Task Manager with Progress Tracker}{Full Stack Development}
+      \vspace{-10pt}
+      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
+     \item \small Developed a secure and scalable full-stack task management web application using React.js, Node.js, Express.js,   \newline MongoDB, Tailwind CSS, and JavaScript with clean architecture and responsive design.
+\item \small Implemented robust user authentication with password hashing, ensured data privacy, and enabled task creation, status updates, and real-time progress tracking features for users.
+
+
+
+      \end{itemize}
+      
+    \resumeProjectHeading
+      {SCATCH E -Commerce Shoping Web}{Full Stack Development}
+      \vspace{-10pt}
+      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
+        \item \small Designed and developed a dynamic full-stack e-commerce web application using React.js, Node.js, Express.js, MongoDB.
+\item \small Implemented secure user authentication with password hashing, admin panel for product management, shopping cart, secure checkout, and API testing using Postman with database management via MongoDB Compass.
+
+      \end{itemize}
+\end{itemize}
+
+
+\section{ACHIEVEMENTS}
+\vspace{8pt}
+\begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
+    % \item Solved 200+ LeetCode problems in C++ with strong focus on DSA and problem-solving.
+    \item Built Agentic AI systems, Auto AI Chatbots, and RAG-based LLM applications on IBM Cloud.
+    \item Strong CS fundamentals: DSA, DBMS, OOPs with hands-on AI/ML project development experience.
+\end{itemize}
+
+
+% Certifications
+\section{CERTIFICATIONS}
+\vspace{8pt}
+\begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
+    \item \small Oracle Cloud Database Services -- Oracle University
+    \item \small Frontend Web Development -- IBM SkillsBuild | Edunet Foundation
+    \item \small AI \& Cloud Technologies -- IBM SkillsBuild | Edunet Foundation
+    \item \small AI/Machine Learning Engineer Foundation -- Reliance Foundation | Skilling Academy
+\end{itemize}
+
+\end{document}
