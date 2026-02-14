@@ -1,200 +1,234 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% One-Page Professional Resume
-% LaTeX Template
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%=============================================================
+%  ABHISHEK — ATS-FRIENDLY SINGLE-PAGE RESUME
+%  Compiler : pdflatex
+%  Font     : Charter (serif, high ATS parse accuracy)
+%
+%  ATS Compliance Rules Applied:
+%   [1] Single-column layout — strict top-to-bottom reading
+%   [2] No tables/tabular used for main content blocks
+%   [3] No images, icons, colors, or graphics
+%   [4] pdfgentounicode=1 — text is copy-paste safe
+%   [5] Hyperlinks embedded but visually clean (hidelinks)
+%   [6] Standard \section{} headings — keyword scannable
+%   [7] Plain text bullet points (\item) — parsed correctly
+%   [8] Consistent date formatting throughout
+%=============================================================
 
-\documentclass[10pt,a4paper]{article}
+\documentclass[10pt, letterpaper]{article}
 
-\usepackage[utf8]{inputenc}
+%-------------------------------------------------------------
+% PACKAGES
+%-------------------------------------------------------------
 \usepackage[T1]{fontenc}
-\usepackage{geometry}
-\usepackage{enumitem}
-\usepackage{hyperref}
-\usepackage{xcolor}
-\usepackage{titlesec}
-\usepackage{multicol}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}              % clean serif, ATS-safe
+\usepackage[
+  top    = 0.40in,
+  bottom = 0.40in,
+  left   = 0.50in,
+  right  = 0.50in
+]{geometry}
+\usepackage{enumitem}             % fine-grained list control
+\usepackage[hidelinks]{hyperref}  % clickable links, no colour
+\usepackage{titlesec}             % custom section style
+\usepackage{microtype}            % microtypography (kerning)
+\input{glyphtounicode}
+\pdfgentounicode=1                % ATS can copy-paste text
 
-% Page margins - optimized for one page
-\geometry{left=0.5in,right=0.5in,top=0.4in,bottom=0.50in}
+%-------------------------------------------------------------
+% GLOBAL SPACING
+%-------------------------------------------------------------
+\pagestyle{empty}           % no page numbers
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{0pt}
+\linespread{1.0}
 
-% Remove page numbers
-\pagestyle{empty}
+%-------------------------------------------------------------
+% SECTION HEADING STYLE
+% Bold, uppercase, full-width rule below
+%-------------------------------------------------------------
+\titleformat{\section}
+  {\vspace{-5pt}\bfseries\normalsize}
+  {}
+  {0em}
+  {\uppercase}
+  [\vspace{0.5pt}\titlerule\vspace{-3pt}]
 
-% Define colors
-\definecolor{headerblue}{RGB}{0,102,204}
+%-------------------------------------------------------------
+% CUSTOM MACROS
+%-------------------------------------------------------------
 
-% Section formatting - reduced spacing
-\titleformat{\section}{\large\bfseries\color{headerblue}}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{6pt}{3pt}
-
-% Custom commands
-\newcommand{\resumeSubheading}[4]{
-  \item
-    \begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{#2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+% \entry{Title}{Dates}{Organisation}{Location}
+% Renders two lines: bold title + italic org on left,
+% dates + location on right. Location can be empty.
+\newcommand{\entry}[4]{%
+  \vspace{4pt}%
+  \noindent
+  \begin{minipage}[t]{0.71\linewidth}
+    \textbf{#1}%
+    \ifx\relax#3\relax\else\\[-1pt]\textit{\small #3}\fi
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[t]{0.27\linewidth}
+    \raggedleft\small #2%
+    \ifx\relax#4\relax\else\\[-1pt]\textit{\small #4}\fi
+  \end{minipage}%
+  \vspace{0pt}%
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-  \item
-    \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textit{\small #2}
-    \end{tabular*}\vspace{-3pt}
+% \proj{Project Name}{Tech Stack}
+\newcommand{\proj}[2]{%
+  \vspace{4pt}%
+  \noindent\textbf{#1}\hfill\textit{\small #2}\\[-4pt]%
 }
 
+% Tight bullet list — used after \entry and \proj
+\newenvironment{items}{%
+  \begin{itemize}[
+    leftmargin = 1.1em,
+    itemsep    = 0pt,
+    parsep     = 0pt,
+    topsep     = 2pt,
+    partopsep  = 0pt
+  ]%
+  \small
+}{%
+  \end{itemize}%
+}
+
+% Skill row: \sk{Category}{values}
+\newcommand{\sk}[2]{%
+  \noindent\textbf{\small #1:}\enspace\small #2\\[1.5pt]%
+}
+
+%=============================================================
 \begin{document}
+%=============================================================
 
-% Header
+%-------------------------------------------------------------
+% HEADER
+%-------------------------------------------------------------
 \begin{center}
-    {\Huge\bfseries FAIZAN KHAN} \\[10pt]
-     9671636548 $|$ mrfaizan023@gmail.com $|$ Gurgaon, Haryana
+  {\LARGE\bfseries ABHISHEK}\\[2pt]
+  {\small Cybersecurity \& Full Stack Developer}\\[3pt]
+  \small
+  South Delhi, India
+  \;\textbullet\;
+  \href{mailto:nishant23194@gmail.com}{nishant23194@gmail.com}
+  \;\textbullet\;
+  +91~83930~03682
+  \;\textbullet\;
+  \href{https://linkedin.com/in/yourprofile}{linkedin.com/in/yourprofile}
+  \;\textbullet\;
+  \href{https://github.com/yourusername}{github.com/yourusername}
 \end{center}
-\vspace{0pt}
 
-% Summary
-\section{SUMMARY}
-\vspace{8pt}
-\textbf{Full Stack Developer | Front-End Enthusiast | Backend Problem Solver}
+\vspace{-3pt}
 
-Creative Full Stack Developer skilled in HTML, CSS, Tailwind CSS, JavaScript, Bootstrap, Git, and GitHub.
-Proficient in backend development using Node.js and Express.js with experience in MongoDB and SQL.
-Strong command over C and Python with solid knowledge of OOP, DSA, and software fundamentals.
-Passionate about building secure, scalable, and user-focused web applications.
-
-
-
-
-% Two column section for Education and Skills
-\begin{multicols}{2}
-\raggedright
-
-% Education
-\section{EDUCATION}
-\vspace{8pt}
-\begin{itemize}[leftmargin=0.15in, itemsep=-1pt]
+%-------------------------------------------------------------
+% PROFESSIONAL SUMMARY
+%-------------------------------------------------------------
+\section{Professional Summary}
 \small
-\textbf{Bachelor of Technology} \\
-Computer Science \& Engineering \\
-Chaudhary Devi Lal University \\
-2023 -- 2027 | GPA: 9.1/10 \\
-Sirsa, Haryana
+Motivated B.Tech Computer Science student with hands-on cybersecurity internship
+experience at CDAC Noida and strong full-stack development skills. Proficient in
+penetration testing, Active Directory enumeration, secure application development,
+and modern web technologies including React.js, Node.js, and MongoDB. Seeking to
+leverage technical expertise in cybersecurity and software engineering roles.
 
-\vspace{8pt}
-\textbf{Intermediate} \\
-Govt. Model Sanskriti Sr. Sec. School \\
-2022 -- 2023
+%-------------------------------------------------------------
+% EDUCATION (left) + TECHNICAL SKILLS (right) — side by side
+%-------------------------------------------------------------
+\vspace{2pt}
+\noindent
+\begin{minipage}[t]{0.47\linewidth}
+  % ── LEFT: EDUCATION ──────────────────────────────────────
+  \section{Education}
+  \vspace{3pt}
+  \noindent\textbf{\small Bachelor of Technology -- Computer Science}\\[1pt]
+  
+  \textit{\small Chaudhary Devi Lal State Institute of}\\
+  \textit{\small Engineering and Technology}\\[2pt]
+  \small 2023\,--\,2027\quad|\quad SGPA: 7.7\,/\,10.0
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.50\linewidth}
+  % ── RIGHT: TECHNICAL SKILLS ──────────────────────────────
+  \section{Technical Skills}
+  \vspace{3pt}
+  \sk{Languages}{C, C++, Python, JavaScript, SQL, HTML, CSS}
+  \sk{Frameworks}{React.js, Node.js, Express.js, MongoDB, SQLite}
+  \sk{Cybersecurity}{Pen Testing, Active Directory, PowerShell Empire, Kali Linux}
+  \sk{Tools}{Git, Linux CLI, Bash, VS Code}
+\end{minipage}
 
-\vspace{8pt}
-\textbf{Matriculation} \\
-Maulana Azad National Urdu University \\
-2020 -- 2021
+\vspace{2pt}
 
-\columnbreak
+%-------------------------------------------------------------
+% WORK EXPERIENCE
+%-------------------------------------------------------------
+\section{Work Experience}
 
-% Skills
-\section{SKILLS} 
-\vspace{8pt}
+\entry{Cybersecurity Intern}{May 2025 -- Jul 2025}
+      {Center for Development and Advanced Computing (CDAC)}{Noida, India}
 
-\small
-\textbf{Front-End:} \\
-HTML, CSS, JavaScript, GitHub, \\
-Tailwind CSS, React.JS, Bootstrap
+\begin{items}
+  \item Performed penetration testing and vulnerability assessments on internal
+        systems, identifying and documenting critical security gaps.
+  \item Conducted Active Directory enumeration using PowerShell Empire to simulate
+        real-world lateral-movement attack scenarios.
+  \item Produced technical reports covering security risks, attack vectors, and
+        mitigation strategies for the senior engineering team.
+\end{items}
 
-\vspace{8pt}
-\textbf{Back-End:} \\
-Node.JS, Express.JS, Rest APIs , Postman
+%-------------------------------------------------------------
+% PROJECTS
+%-------------------------------------------------------------
+\section{Projects}
 
-\vspace{8pt}
-\textbf{Database:} \\
-MySQL, MongoDB, DBMS, MongoDB Compass
+\proj{The Menta Website}{HTML, CSS, JavaScript}
+\begin{items}
+  \item Designed and deployed a fully responsive website with dynamic UI components,
+        cross-browser compatibility, and optimised page-load performance.
+  \item Managed end-to-end digital content creation and media production as founder.
+\end{items}
 
-\vspace{8pt}
-\textbf{Languages:} \\
-C, C++, Python, DSA, OOP Concepts
+\proj{Terminal Text Editor}{C++}
+\begin{items}
+  \item Built a command-line text editor from scratch with file read/write,
+        incremental in-file search, and keyboard-driven cursor navigation.
+\end{items}
 
-\end{multicols}
-\vspace{5pt}  
-% Experience
-\section{EXPERIENCE}
-\vspace{3pt}
-\begin{itemize}[leftmargin=0.1in, label={}, itemsep=-2pt]
-    \resumeSubheading
-      {Front End Web Developer}{08/2025 -- 09/2025}
-      {Edunet Foundation | IBM SkillsBuild}{Online}
-      \vspace{3pt}
-      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=-1pt]
-       
-        \item \small Built responsive web projects and enhanced skills in modern web design and user experience optimization.
-         \item \small Completed Frontend Web Development internship hands-on experience with HTML,Tailwind CSS,JavaScript, React.js.
+\proj{Inventory Management System}{Python, SQLite}
+\begin{items}
+  \item Developed a CRUD inventory application with persistent SQLite storage,
+        supporting add, update, delete, and filter operations via CLI.
+\end{items}
 
-
-
-      \end{itemize}
-      
-    \resumeSubheading
-      {AI/ML \& Cloud Technologies}{07/2025 -- 12/2025}
-      {Edunet Foundation | IBM SkillsBuild}{Online}
-      \vspace{3pt}
-      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=-1pt]
-      \item \small Trained in cloud computing with practical experience in IBM Cloud, AutoAI, EDA, and AI chatbot development.
-\item \small Developed strong skills in data visualization, machine learning, and prompt engineering for real-world problem solving.
-
-
-      \end{itemize}
+%-------------------------------------------------------------
+% CERTIFICATIONS
+%-------------------------------------------------------------
+\section{Certifications}
+\vspace{2pt}
+\begin{itemize}[leftmargin=1.1em, itemsep=1pt, parsep=0pt, topsep=1pt]
+  \small
+  \item AI Machine Learning \hfill DataCamp, 2025
+  \item AI Engineer Associate \hfill DataCamp, 2025
+  \item Deloitte Cyber Job Simulation \hfill Forage, 2025
+  \item Mastering C Language \hfill Udemy
 \end{itemize}
 
-% Projects
-\section{PROJECTS}
-\vspace{3pt}
-\begin{itemize}[leftmargin=0.1in, label={}, itemsep=4pt]
-    \resumeProjectHeading
-      {PERSONAL PORTFOLIO || AMAZON , YOUTUBE COLON}{Frontend Development}
-      \vspace{-10pt}
-      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
-        \item \small Built a fully responsive personal portfolio using HTML, CSS, Tailwind CSS, and JavaScript to showcase projects and skills with a clean, modern, and visually appealing user interface design.
+%-------------------------------------------------------------
+% LEADERSHIP & ACTIVITIES
+%-------------------------------------------------------------
+\section{Leadership \& Activities}
 
-      \end{itemize}
-      
-    \resumeProjectHeading
-      {TASKFLOW -- Task Manager with Progress Tracker}{Full Stack Development}
-      \vspace{-10pt}
-      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
-     \item \small Developed a secure and scalable full-stack task management web application using React.js, Node.js, Express.js,   \newline MongoDB, Tailwind CSS, and JavaScript with clean architecture and responsive design.
-\item \small Implemented robust user authentication with password hashing, ensured data privacy, and enabled task creation, status updates, and real-time progress tracking features for users.
+\entry{Founder --- The Menta}{2022 -- Present}{}{}
 
+\begin{items}
+  \item Built and led a digital media project overseeing content strategy,
+        production workflows, and online audience growth.
+\end{items}
 
-
-      \end{itemize}
-      
-    \resumeProjectHeading
-      {SCATCH E -Commerce Shoping Web}{Full Stack Development}
-      \vspace{-10pt}
-      \begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
-        \item \small Designed and developed a dynamic full-stack e-commerce web application using React.js, Node.js, Express.js, MongoDB.
-\item \small Implemented secure user authentication with password hashing, admin panel for product management, shopping cart, secure checkout, and API testing using Postman with database management via MongoDB Compass.
-
-      \end{itemize}
-\end{itemize}
-
-
-\section{ACHIEVEMENTS}
-\vspace{8pt}
-\begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
-    % \item Solved 200+ LeetCode problems in C++ with strong focus on DSA and problem-solving.
-    \item Built Agentic AI systems, Auto AI Chatbots, and RAG-based LLM applications on IBM Cloud.
-    \item Strong CS fundamentals: DSA, DBMS, OOPs with hands-on AI/ML project development experience.
-\end{itemize}
-
-
-% Certifications
-\section{CERTIFICATIONS}
-\vspace{8pt}
-\begin{itemize}[leftmargin=0.50in, label=$\bullet$, itemsep=2pt]
-    \item \small Oracle Cloud Database Services -- Oracle University
-    \item \small Frontend Web Development -- IBM SkillsBuild | Edunet Foundation
-    \item \small AI \& Cloud Technologies -- IBM SkillsBuild | Edunet Foundation
-    \item \small AI/Machine Learning Engineer Foundation -- Reliance Foundation | Skilling Academy
-\end{itemize}
-
+%=============================================================
 \end{document}
