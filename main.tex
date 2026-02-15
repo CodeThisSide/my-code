@@ -32,6 +32,10 @@
 \usepackage[hidelinks]{hyperref}  % clickable links, no colour
 \usepackage{titlesec}             % custom section style
 \usepackage{microtype}            % microtypography (kerning)
+% ── COLOR PACKAGE ────────────────────────────────────────────
+\usepackage[dvipsnames]{xcolor}
+\definecolor{navyblue}{HTML}{003366}  % Navy Blue — headings & rules
+% ─────────────────────────────────────────────────────────────
 \input{glyphtounicode}
 \pdfgentounicode=1                % ATS can copy-paste text
 
@@ -45,22 +49,20 @@
 
 %-------------------------------------------------------------
 % SECTION HEADING STYLE
-% Bold, uppercase, full-width rule below
+% Navy blue bold uppercase text + navy blue rule below
 %-------------------------------------------------------------
 \titleformat{\section}
-  {\vspace{-5pt}\bfseries\normalsize}
+  {\vspace{-5pt}\bfseries\normalsize\color{navyblue}}  % <-- heading color
   {}
   {0em}
   {\uppercase}
-  [\vspace{0.5pt}\titlerule\vspace{-3pt}]
+  [\vspace{0.5pt}{\color{navyblue}\titlerule}\vspace{-3pt}]  % <-- rule color
 
 %-------------------------------------------------------------
 % CUSTOM MACROS
 %-------------------------------------------------------------
 
 % \entry{Title}{Dates}{Organisation}{Location}
-% Renders two lines: bold title + italic org on left,
-% dates + location on right. Location can be empty.
 \newcommand{\entry}[4]{%
   \vspace{4pt}%
   \noindent
@@ -118,9 +120,9 @@
   \;\textbullet\;
   +91~83930~03682
   \;\textbullet\;
-  \href{https://linkedin.com/in/yourprofile}{linkedin.com/in/yourprofile}
+  \href{https://www.linkedin.com/in/abhishek-chaudhary-2bb945270/}{linkedin}
   \;\textbullet\;
-  \href{https://github.com/yourusername}{github.com/yourusername}
+  \href{https://github.com/CodeThisSide}{github}
 \end{center}
 
 \vspace{-3pt}
@@ -145,11 +147,19 @@ leverage technical expertise in cybersecurity and software engineering roles.
   % ── LEFT: EDUCATION ──────────────────────────────────────
   \section{Education}
   \vspace{3pt}
-  \noindent\textbf{\small Bachelor of Technology -- Computer Science}\\[1pt]
-  
+  \noindent\textbf{\small Bachelor of Technology }
+
+  \textit{\small Computer Science Engineering}\\
   \textit{\small Chaudhary Devi Lal State Institute of}\\
   \textit{\small Engineering and Technology}\\[2pt]
-  \small 2023\,--\,2027\quad|\quad SGPA: 7.7\,/\,10.0
+  \small 2023\,--\,2027\quad|\quad SGPA: 7.7\,/\,10.0\\[2pt]
+  \noindent\textbf{\small Intermediate}\\
+  \textit{\small Kendriya Vidyalaya Pilibhit}\\[2pt]
+  \small 2021\,--\,2022
+  \noindent\textbf{\small Intermediate}\\
+  \textit{\small Kendriya Vidyalaya Pilibhit}\\[2pt]
+  \small 2021\,--\,2022
+
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.50\linewidth}
@@ -181,29 +191,46 @@ leverage technical expertise in cybersecurity and software engineering roles.
         mitigation strategies for the senior engineering team.
 \end{items}
 
+\entry{Full Stack-Web Development}{May 2025 -- Jul 2025}
+      {The Menta}{New Delhi, India}
+
+\begin{items}
+  \item Developed a fully responsive full-stack web application with a user-friendly interface and scalable backend, implementing secure authentication, efficient data handling, and seamless frontend-backend communication through RESTful APIs.
+  \item Optimized performance, loading speed, and cross-browser compatibility while following clean code practices, modular architecture, and version control (Git) for maintainability and collaborative development.
+  
+\end{items}
+
 %-------------------------------------------------------------
 % PROJECTS
 %-------------------------------------------------------------
 \section{Projects}
+\entry{PERSONAL PORTFOLIO || AMAZON , YOUTUBE COLON }{Frontend Development}{}
 
-\proj{The Menta Website}{HTML, CSS, JavaScript}
+\begin{items}
+  \item Built a fully responsive personal portfolio using HTML, CSS, Tailwind CSS, and JavaScript to showcase projects and
+skills with a clean, modern, and visually appealing user interface design
+  \end{items}
+
+\entry{Full Stack-Website}{HTML, CSS, JavaScript}{The Menta}
+
 \begin{items}
   \item Designed and deployed a fully responsive website with dynamic UI components,
         cross-browser compatibility, and optimised page-load performance.
   \item Managed end-to-end digital content creation and media production as founder.
 \end{items}
+\entry{Real Time Chat Bot}{Full Stack Development}{}
 
-\proj{Terminal Text Editor}{C++}
 \begin{items}
-  \item Built a command-line text editor from scratch with file read/write,
-        incremental in-file search, and keyboard-driven cursor navigation.
+  \item Built a responsive real-time chat application using React.js, Node.js, Express.js, MongoDB, and Socket.io, implementing secure authentication and instant bidirectional messaging.
+  \item Ensured high performance and scalability with REST APIs, modular architecture, and Git-based version control, optimized for cross-device compatibility.
+\end{items}
+\entry{E -Commerce Website}{Full Stack Development}{}
+
+\begin{items}
+  \item Developed a responsive E-Commerce web application using React.js, Node.js, Express.js, and MongoDB, featuring product listing, search, cart management, and secure user authentication
+  \item Integrated RESTful APIs and online payment gateway, ensuring smooth order processing, optimized performance, and scalable architecture with Git-based version control.
 \end{items}
 
-\proj{Inventory Management System}{Python, SQLite}
-\begin{items}
-  \item Developed a CRUD inventory application with persistent SQLite storage,
-        supporting add, update, delete, and filter operations via CLI.
-\end{items}
 
 %-------------------------------------------------------------
 % CERTIFICATIONS
@@ -212,10 +239,13 @@ leverage technical expertise in cybersecurity and software engineering roles.
 \vspace{2pt}
 \begin{itemize}[leftmargin=1.1em, itemsep=1pt, parsep=0pt, topsep=1pt]
   \small
-  \item AI Machine Learning \hfill DataCamp, 2025
-  \item AI Engineer Associate \hfill DataCamp, 2025
-  \item Deloitte Cyber Job Simulation \hfill Forage, 2025
-  \item Mastering C Language \hfill Udemy
+  \entry{AI Machine Learning}{2026}{Edunet Foundation | IBM SkillsBuild}{Online}
+  \entry{AI Machine Learning}{2025}{DataCamp }{Online}
+  \entry{AI Engineer Associate}{2025}{DataCamp }{Online}
+  \entry{Full Stack Development}{2025}{The Menta }{New Delhi, India}
+  \entry{Deloitte Cyber Job Simulation}{2025}{Forage }{Online}
+  
+ 
 \end{itemize}
 
 %-------------------------------------------------------------
@@ -223,7 +253,10 @@ leverage technical expertise in cybersecurity and software engineering roles.
 %-------------------------------------------------------------
 \section{Leadership \& Activities}
 
-\entry{Founder --- The Menta}{2022 -- Present}{}{}
+\entry{Training and Placement Cell}{2025 -- Present}{Cordinator}{}
+\entry{Informania-X}{2025 -- Present}{Cordinator}{Tech-Club}
+\entry{Code-Crafer}{2025 -- Present}{Main Student-Cordinator}{Tech-Club}
+\entry{The Menta}{2022 -- Present}{Content Creator}{}
 
 \begin{items}
   \item Built and led a digital media project overseeing content strategy,
